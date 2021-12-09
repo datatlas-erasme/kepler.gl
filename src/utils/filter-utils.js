@@ -329,6 +329,7 @@ export function getFilterProps(field, fieldDomain) {
         gpu: false
       };
 
+    case ALL_FIELD_TYPES.array:
     case ALL_FIELD_TYPES.string:
     case ALL_FIELD_TYPES.date:
       return {
@@ -414,7 +415,13 @@ export function getFilterFunction(field, dataId, filter, layers, dataContainer) 
     case FILTER_TYPES.range:
       return data => isInRange(valueAccessor(data), filter.value);
     case FILTER_TYPES.multiSelect:
-      return data => filter.value.includes(valueAccessor(data));
+      return data => {
+        const value = valueAccessor(data);
+        if (Array.isArray(value)) {
+          return value.some(v => filter.value.includes(v));
+        }
+        return filter.value.includes(value);
+      };
     case FILTER_TYPES.select:
       return data => valueAccessor(data) === filter.value;
     case FILTER_TYPES.timeRange:
@@ -948,6 +955,7 @@ export function mergeFilterDomainStep(filter, filterProps) {
   };
 
   switch (filterProps.fieldType) {
+    case ALL_FIELD_TYPES.array:
     case ALL_FIELD_TYPES.string:
     case ALL_FIELD_TYPES.date:
       return {
