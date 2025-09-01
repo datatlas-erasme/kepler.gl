@@ -671,3 +671,6 @@ Read more about [addDataToMap](./docs/api-reference/actions/actions.md#adddatato
 [43]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [44]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
 [45]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+
+<!-- Security scan triggered at 2025-09-02 00:10:14 -->
