@@ -674,3 +674,5 @@ Read more about [addDataToMap](./docs/api-reference/actions/actions.md#adddatato
 
 
 <!-- Security scan triggered at 2025-09-02 00:10:14 -->
+
+<!-- Security scan triggered at 2025-09-09 05:26:17 -->
